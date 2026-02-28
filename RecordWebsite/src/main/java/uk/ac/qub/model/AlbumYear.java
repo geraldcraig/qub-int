@@ -6,17 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "users")
+@Table(name = "albumyear", uniqueConstraints = @UniqueConstraint(columnNames = "albumyear"))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users {
+public class AlbumYear {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private String userPassword;
-    private Integer admin;
+
+    @Column(name = "albumyear", nullable = false, unique = true)
+    private Integer albumYear;
+
 }
